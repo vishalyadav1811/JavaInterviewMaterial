@@ -1,0 +1,95 @@
+Q Hibernate Framework
+Ans.The development of Java application to interact with the database. It is an open source, lightweight, ORM (Object Relational Mapping) tool. Hibernate implements the specifications of JPA (Java Persistence API) for data persistence.
+
+Q ORM
+Ans. An ORM tool simplifies the data creation, data manipulation and data access. It is a programming technique that maps the object to the data stored in the database.
+
+
+Q JPA 
+Ans Java specification that provides certain functionality and standard to ORM tools. The javax.persistence package contains the JPA classes and interfaces.
+
+
+Q HB cache
+ANS First Level Cache, and Second Level Cache
+
+First Level Cache- Session object holds the first level cache data. It is enabled by default. The first level cache data will not be available to entire application. An application can use many session object.
+
+Second Level Cache-SessionFactory object holds the second level cache data. The data stored in the second level cache will be available to entire application. But we need to enable it explicitely.
+
+EH (Easy Hibernate) Cache
+Swarm Cache
+OS Cache
+JBoss Cache
+
+
+Q Advantages of Hibernate Framework
+Ans  
+1.Lightweight -  Is a lightweight framework as it does not contains additional functionalities. it uses only  functionalities required for ORM.
+*Because it uses persistent classes for data transfer between java application and databases.     
+
+2.Open Source - it is available for everyone without any cost
+3.ORM -the interaction between the java classes and relational database.
+4.High Performance -Many fetching techniques such as, caching, lazy initialization, and many more to achieve high performance.
+5.HQL (Hibernate Query Language) - which is independent of the database.
+6.Caching- two levels of caching, first-level and second-level caching.Caching is the process of storing data into cache memory and improves the speed of data access.
+7. Scalability- it can be fit in any environment. for both small scale and large scale applications.
+8.Lazy Loading- Lazy loading concept retrieves the only necessary object for execution.
+
+
+
+Q Hibernate Architecture
+Ans . The Hibernate architecture includes many objects such as persistent object, session factory, transaction factory, connection factory, session, transaction etc.
+
+SessionFactory -The SessionFactory is a factory of session and client of ConnectionProvider. It holds second level cache (optional) of data. The org.hibernate.SessionFactory interface provides factory method to get the object of Session
+
+
+Session-The session object provides an interface between the application and data stored in the database. It is a short-lived object and wraps the JDBC connection. It is factory of Transaction, Query and Criteria. It holds a first-level cache (mandatory) of data. The org.hibernate.Session interface provides methods to insert, update and delete the object. It also provides factory methods for Transaction, Query and Criteria.
+
+Transaction-The transaction object specifies the atomic unit of work. It is optional. The org.hibernate.Transaction interface provides methods for transaction management.
+
+ConnectionProvider-It is a factory of JDBC connections. It abstracts the application from DriverManager or DataSource.
+
+
+Q Define persistent classes.
+ANS Classes whose objects are stored in a database table are called as persistent classes.
+
+
+Q Is SessionFactory a thread-safe object?
+ANS Yes, SessionFactory is a thread-safe object, many threads cannot access it simultaneously.
+
+
+Q Is Session a thread-safe object?
+Ans -No, Session is not a thread-safe object, many threads can access it simultaneously. In other words, you can share it between threads.
+
+Q What is Session?
+Ans- It maintains a connection between the hibernate application and database.
+It provides methods to store, update, delete or fetch data from the database such as persist(), update(), delete(), load(), get() etc.
+It is a factory of Query, Criteria and Transaction i.e. it provides factory methods to return these instances.
+
+Q -What is the difference between session.save() and session.persist() method?
+ANS  	save()	                                               persist()
+   1)	returns the identifier (Serializable) of the instance.	Return nothing because its return type is void.
+2)	Syn: public Serializable save(Object o)	Syn: public void persist(Object o)
+
+
+Q What is the difference between first level cache and second level cache?
+Ans 	First Level Cache	                            Second Level Cache
+1)	First Level Cache is associated with Session.	Second Level Cache is associated with SessionFactory.
+2)	It is enabled by default.	It is not enabled by default.
+
+Q How many types of association mapping are possible in hibernate?
+There can be 4 types of association mapping in hibernate.
+
+One to One
+One to Many
+Many to One
+Many to Many
+
+
+Q Is it possible to perform collection mapping with One-to-One and Many-to-One?
+ANS -No, collection mapping can only be performed with One-to-Many and Many-to-Many.
+
+Q What is lazy loading in hibernate?
+ANS -Lazy loading in hibernate improves the performance. It loads the child objects on demand.
+Since Hibernate 3, lazy loading is enabled by default, and you don't need to do lazy="true". It means not to load the child objects when the parent is loaded.
+
